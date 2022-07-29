@@ -2,10 +2,31 @@ import XCTest
 @testable import PascalCaseKit
 
 final class PascalCaseKitTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(PascalCaseKit().text, "Hello, World!")
+
+    func testRawValueConversion() {
+        let testCases = Example.allCases
+        let actual = testCases.map(\.rawValue)
+        let expected = testCases.map(\.expectedPascalCaseValue)
+        XCTAssertEqual(actual, expected)
+    }
+}
+
+private enum Example: String, PascalRepresentable, CaseIterable {
+    case helloWorld
+    case x
+    case _2x
+    case someAbbreviationLikeURL
+
+    var expectedPascalCaseValue: String {
+        switch self {
+        case .helloWorld:
+            return "HelloWorld"
+        case .x:
+            return "X"
+        case ._2x:
+            return "_2x"
+        case .someAbbreviationLikeURL:
+            return "SomeAbbreviationLikeURL"
+        }
     }
 }
