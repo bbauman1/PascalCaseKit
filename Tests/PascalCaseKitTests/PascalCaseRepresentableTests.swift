@@ -11,7 +11,7 @@ final class PascalCaseKitTests: XCTestCase {
     }
 }
 
-private enum Example: String, PascalRepresentable, CaseIterable {
+private enum Example: String, PascalCaseRepresentable, CaseIterable {
     case helloWorld
     case x
     case _2x
