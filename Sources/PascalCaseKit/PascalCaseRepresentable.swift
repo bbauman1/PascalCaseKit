@@ -1,8 +1,8 @@
 /// A `RawRepresentable` type that outputs a `rawValue` in Pascal Case format when `RawValue`
 /// is of type `String`.
-protocol PascalCaseRepresentable: RawRepresentable { }
+public protocol PascalCaseRepresentable: RawRepresentable { }
 
-extension PascalCaseRepresentable where Self.RawValue == String {
+public extension PascalCaseRepresentable where Self.RawValue == String {
 
     var rawValue: RawValue {
         let value = String(describing: self)
