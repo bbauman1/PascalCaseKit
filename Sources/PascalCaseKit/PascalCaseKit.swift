@@ -10,3 +10,7 @@ extension PascalRepresentable where Self.RawValue == String {
         return first.uppercased() + value.dropFirst()
     }
 }
+
+enum Colors: String {
+    case neonGreen = "NeonGreen"
+}
